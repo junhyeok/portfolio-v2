@@ -1,0 +1,64 @@
+---
+title: finger tracking glove
+type: Prototype
+year: 2025
+thumbnail: /images/room-design/teaser.png
+summary: Comparing paper, LEGO, and digital tools for interior design.
+---
+
+
+# Finger Tracking Glove
+
+I developed a custom finger-tracking glove to support XR studies involving tangible proxies. The goal was to track precise fingertip movements and align a virtual hand representation with a user's real hand in real time.
+
+![Early sketch and prototype](/images/finger-tracking-glove/early-prototyping.png)
+
+## Motivation
+
+Several studies required accurate finger tracking while interacting with tangible objects. Commercial systems exist, but I wanted a solution that was inexpensive, maintainable, and customizable across multiple projects.
+
+## Early Exploration
+
+An early prototype investigated whether OptiTrack's built-in hand-tracking algorithm could be used directly. The approach relied on asymmetric arrangements of passive markers across the hand and fingers.
+
+Unfortunately, passive tracking frequently suffered from marker swaps and orientation flips, which introduced tracking instability.
+
+The image above shows early sketches and prototypes used to explore marker placement and wire routing.
+
+## Simplified Active-Marker Tracking
+
+To gain complete control over the tracking pipeline, I implemented a simplified finger-tracking system in Unity using active markers.
+
+![Working glove prototype](/images/finger-tracking-glove/wires_glove.png)
+
+A work glove was used to mount:
+
+- active markers
+- a controller PCB
+- a battery pack
+
+This provided reliable tracking performance but introduced two practical issues:
+
+1. Accommodating different hand sizes
+2. Preserving tactile feedback at the fingertips
+
+## Nail Ring Design
+
+To avoid covering the finger pads, I experimented with nail-mounted marker attachments.
+
+![Nail ring prototypes](/images/finger-tracking-glove/nailring_5working.png)
+
+The final design used:
+
+- a half-finger glove
+- five nail rings
+- active markers
+- a hand-mounted PCB and battery
+
+This approach maintained tactile feedback while providing stable tracking.
+
+## Outcome
+
+The final system delivered tracked fingertip positions for all five fingers. Marker positions were streamed into Unity and used to drive the virtual hand representation.
+
+Because the virtual hand could be manipulated independently from the tangible proxy, the system enabled experiments involving scale changes and physical-virtual mismatch conditions.
