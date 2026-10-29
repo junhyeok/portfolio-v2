@@ -21,8 +21,8 @@ async function PublicationContent({
   }
 
   return (
-    <main className="max-w-2xl mx-auto">
-    <h1 className="text-2xl font-bold mb-3">
+    <main className="max-w-3xl mx-auto p-8">
+    <h1 className="text-4xl font-bold mb-3">
         {publication.frontmatter.title}
     </h1>
 

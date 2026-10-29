@@ -1,5 +1,6 @@
 import Link from "next/link";
 import "./globals.css";
+import NavLink from "@/components/NavLink";
 
 export default function RootLayout({
   children,
@@ -10,28 +11,28 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <div className="min-h-screen bg-black text-gray-100">
-          <header className="max-w-3xl mx-auto border-b border-zinc-800">
+          <header className="fixed top-0 left-0 w-full bg-black/60 backdrop-blur-sm z-50">
 
-            <div className="max-w-2xl mx-auto px-8 py-6 flex justify-between items-center">
+            <div className="max-w-2xl mx-auto px-8 py-4">
               
-              <nav className="flex items-center w-full text-zinc-400 text-sm">
+              <nav className="flex items-center justify-between gap-12 text-zinc-400 text-sm">
 
                 <div className="flex gap-6"> 
-                  <Link href="/" className="text-zinc-100 hover:text-white transition-colors">
+                  <NavLink href="/" className="text-zinc-100 hover:text-white transition-colors">
                     Junhyeok Kim
-                  </Link>
-                  <Link href="/work" className="hover:text-white transition-colors">
+                  </NavLink>
+                  <NavLink href="/work" className="hover:text-white transition-colors">
                     Work
-                  </Link>
-                  <Link href="/publications" className="hover:text-white transition-colors">
+                  </NavLink>
+                  <NavLink href="/publications" className="hover:text-white transition-colors">
                     Publications
-                  </Link>
-                  <Link href="/cv" className="hover:text-white transition-colors">
+                  </NavLink>
+                  <NavLink href="/cv" className="hover:text-white transition-colors">
                     CV
-                  </Link>
+                  </NavLink>
                 </div>
 
-                <div className="flex gap-4 ml-auto text-zinc-500 hover:text-white transition-colors">
+                <div className="flex gap-4 text-zinc-500">
                   <a
                     href="mailto:visual713@gmail.com"
                     className="hover:text-white transition-colors"
@@ -52,7 +53,7 @@ export default function RootLayout({
             </div>
           </header>
 
-          <main className="max-w-2xl mx-auto px-8 py-12">
+          <main className="max-w-2xl mx-auto px-8 py-30 pb-[30vh]">
             {children}
           </main>
         </div>
