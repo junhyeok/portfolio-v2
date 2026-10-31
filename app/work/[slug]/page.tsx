@@ -24,19 +24,22 @@ async function ProjectContent({
   }
 
   return (
+    <>
     <main className="max-w-3xl mx-auto p-8">
       <h1 className="text-4xl font-bold mb-2">
         {project.frontmatter.title}
       </h1>
 
-      <p className="text-zinc-500 mb-8">
-        {project.frontmatter.type}
-        {" • "}
-        {project.frontmatter.year}
-      </p>
-      
-      <BackToTop />
-      
+      <div className="mb-8">
+        <div className="text-sm text-zinc-500">
+          {project.frontmatter.type} • {project.frontmatter.year}
+        </div>
+
+        <div className="text-zinc-500 mt-1">
+          {project.frontmatter.summary}
+        </div>
+      </div>
+
       {project.frontmatter.thumbnail && (
         <div className="mb-10">
           <Image
@@ -44,16 +47,18 @@ async function ProjectContent({
             alt={project.frontmatter.title}
             width={1200}
             height={675}
-            className="w-full rounded-lg"
+            className="w-full"
           />
         </div>
       )}
-
 
       <div className="prose prose-invert max-w-none">
         <MDXRemote source={project.source} />
       </div>
     </main>
+
+    <BackToTop />
+    </>
   );
 }
 

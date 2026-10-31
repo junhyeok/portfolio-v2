@@ -29,6 +29,6 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "**/*.mts"
-  ],
+, "content/experience/waterloo-ta.mdx", "content/experience/waterloo-ra.mdx"  ],
   "exclude": ["node_modules"]
 }

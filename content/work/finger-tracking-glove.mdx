@@ -1,17 +1,15 @@
 ---
-title: finger tracking glove
+title: Finger Tracking Glove
 type: Prototype
 year: 2025
-thumbnail: /images/room-design/teaser.png
-summary: Comparing paper, LEGO, and digital tools for interior design.
+thumbnail: /images/finger-tracking-glove/nailring_5working.png
+summary: Custom finger-tracking system using active markers for XR studies.
 ---
-
-
-# Finger Tracking Glove
 
 I developed a custom finger-tracking glove to support XR studies involving tangible proxies. The goal was to track precise fingertip movements and align a virtual hand representation with a user's real hand in real time.
 
-![Early sketch and prototype](/images/finger-tracking-glove/early-prototyping.png)
+![Final system](/images/finger-tracking-glove/nailring_5working.png)
+*Final finger-tracking glove with nail-ring marker attachments.*
 
 ## Motivation
 
@@ -23,7 +21,15 @@ An early prototype investigated whether OptiTrack's built-in hand-tracking algor
 
 Unfortunately, passive tracking frequently suffered from marker swaps and orientation flips, which introduced tracking instability.
 
-The image above shows early sketches and prototypes used to explore marker placement and wire routing.
+### Early sketches
+
+![Early sketch](/images/finger-tracking-glove/early_sketch.png)
+
+### Wire-routing prototype
+
+![Early prototype](/images/finger-tracking-glove/earlyprototyping.png)
+
+These experiments explored marker placement and wire routing before committing to a final design.
 
 ## Simplified Active-Marker Tracking
 
@@ -37,16 +43,16 @@ A work glove was used to mount:
 - a controller PCB
 - a battery pack
 
-This provided reliable tracking performance but introduced two practical issues:
+This design provided reliable tracking performance but introduced two practical challenges:
 
-1. Accommodating different hand sizes
-2. Preserving tactile feedback at the fingertips
+1. Accommodating different hand sizes.
+2. Preserving tactile feedback at the fingertips.
 
 ## Nail Ring Design
 
 To avoid covering the finger pads, I experimented with nail-mounted marker attachments.
 
-![Nail ring prototypes](/images/finger-tracking-glove/nailring_5working.png)
+![Nail ring concept](/images/finger-tracking-glove/using_finger_nailring.png)
 
 The final design used:
 
@@ -54,6 +60,8 @@ The final design used:
 - five nail rings
 - active markers
 - a hand-mounted PCB and battery
+
+![Final prototype](/images/finger-tracking-glove/nailring_5working.png)
 
 This approach maintained tactile feedback while providing stable tracking.
 

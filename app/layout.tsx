@@ -10,7 +10,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <div className="min-h-screen bg-black text-gray-100">
+        <div className="min-h-screen bg-black text-zinc-300">
           <header className="fixed top-0 left-0 w-full bg-black/60 backdrop-blur-sm z-50">
 
             <div className="max-w-2xl mx-auto px-8 py-4">

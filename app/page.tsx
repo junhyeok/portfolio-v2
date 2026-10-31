@@ -6,13 +6,12 @@ export default function Home() {
       </h1>
 
       <p className="text-xl text-zinc-400">
-        HCI • XR • UX • Haptics
+        Applied HCI Researcher
       </p>
 
+
       <p className="max-w-2xl text-zinc-300 leading-relaxed">
-        My work explores how physical and virtual
-        representations can be combined to create
-        more effective interactive systems.
+        I design, build, and study emerging interactive systems. My work combines empirical research, interaction design, and functional prototyping to understand how people maintain agency and control as technology moves beyond familiar physical constraints.
       </p>
     </div>
   );
