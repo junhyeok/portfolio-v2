@@ -1,3 +1,5 @@
+import Section from "@/components/Section";
+
 import { profile } from "@/content/cv/profile";
 import { getExperiences } from "@/lib/experience";
 import { getProjects } from "@/lib/work";
@@ -48,59 +50,35 @@ export default function CVPage() {
         </p>
       </section>
 
-      <section>
-        <div className="flex items-center gap-4 mb-6">
-          <h2 className="text-xl font-semibold">
-            Education
-          </h2>
+      
 
-          <div className="flex-1 h-px bg-zinc-800" />
-        </div>
+      <Section title="Education">
+        <ul className="list-disc pl-5">
+          {profile.education.map((edu) => (
+            <li key={edu.degree}>
+              <div>{edu.degree}</div>
+              <div className="text-zinc-400">
+                {edu.institution} · {edu.year}
+              </div>
+              {edu.thesis && (
+                <div className="text-zinc-600 text-sm italic pb-2">
+                  {edu.thesis}
+                </div>
+              )}
+            </li>
+          ))}
+        </ul>
+      </Section>
 
-        {profile.education.map((edu) => (
-          <div key={edu.degree}>
-            <div>{edu.degree}</div>
-            <div className="text-zinc-500">
-              {edu.institution} · {edu.year}
-            </div>
-            {edu.thesis && (
-              <><div className="text-zinc-400 text-sm italic">
-                {edu.thesis}
-              </div><br /></>
-            )}
-          </div>
-        ))}
-      </section>
-
-
-
-      <section>
-        <div className="flex items-center gap-4 mb-6">
-          <h2 className="text-xl font-semibold">
-            Research Interests
-          </h2>
-
-          <div className="flex-1 h-px bg-zinc-800" />
-        </div>
-
+      <Section title="Research Interests">
         <ul className="list-disc pl-5">
           {profile.interests.map((interest) => (
             <li key={interest}>{interest}</li>
           ))}
         </ul>
-      </section>
+      </Section>
 
-
-
-      <section>
-        <div className="flex items-center gap-4 mb-6">
-          <h2 className="text-xl font-semibold">
-            Experience
-          </h2>
-
-          <div className="flex-1 h-px bg-zinc-800" />
-        </div>
-
+      <Section title="Experience">
         <div className="space-y-6">
           {experiences.map((exp: any) => (
             <div key={exp.slug}>
@@ -108,53 +86,34 @@ export default function CVPage() {
                 {exp.title}
               </div>
 
-              <div className="text-zinc-500 text-sm">
+              <div className="text-zinc-400 text-sm">
                 {exp.organization} • {exp.start}–{exp.end}
               </div>
 
-              <div className="text-zinc-400 text-sm mt-1">
+              <div className="text-zinc-600 text-sm mt-1">
                 {exp.summary}
               </div>
             </div>
           ))}
         </div>
-      </section>
+      </Section>
 
-
-
-      <section>
-        <div className="flex items-center gap-4 mb-6">
-          <h2 className="text-xl font-semibold">
-            Selected Publications
-          </h2>
-
-          <div className="flex-1 h-px bg-zinc-800" />
-        </div>
-
+      <Section title="Selected Publications">
         <div className="space-y-3">
-          {publications.slice(0, 10).map((publication: any) => (
+          {publications.slice(0, 7).map((publication: any) => (
             <div key={publication.slug}>
               <div>{publication.title}</div>
-              <div className="text-zinc-500 text-sm">
+              <div className="text-zinc-600 text-sm">
                 {publication.venue}
               </div>
             </div>
           ))}
         </div>
-      </section>
+      </Section>
 
-
-      <section>
-        <div className="flex items-center gap-4 mb-6">
-          <h2 className="text-xl font-semibold">
-            Selected Talks
-          </h2>
-
-          <div className="flex-1 h-px bg-zinc-800" />
-        </div>
-
+      <Section title="Selected Talks">
         <div className="space-y-3">
-          {talks.slice(0, 5).map((talk: any) => (
+          {talks.slice(0, 3).map((talk: any) => (
             <div key={talk.slug}>
               <div>{talk.title}</div>
               <div className="text-zinc-500 text-sm">
@@ -163,39 +122,9 @@ export default function CVPage() {
             </div>
           ))}
         </div>
-      </section>
+      </Section>
 
-
-      <section>
-        <div className="flex items-center gap-4 mb-6">
-          <h2 className="text-xl font-semibold">
-            Teaching
-          </h2>
-
-          <div className="flex-1 h-px bg-zinc-800" />
-        </div>
-
-        <div className="space-y-3">
-          {teaching.slice(0, 5).map((course: any) => (
-            <div key={course.slug}>
-              <div>{course.title}</div>
-              <div className="text-zinc-500 text-sm">
-                {course.institution} • {course.year}
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section>
-        <div className="flex items-center gap-4 mb-6">
-          <h2 className="text-xl font-semibold">
-            Awards & Honors
-          </h2>
-
-          <div className="flex-1 h-px bg-zinc-800" />
-        </div>
-
+      <Section title="Awards">
         <div className="space-y-3">
           {awards.slice(0, 5).map((award: any) => (
             <div key={award.slug}>
@@ -206,44 +135,24 @@ export default function CVPage() {
             </div>
           ))}
         </div>
-      </section>
+      </Section>
 
-
-      <section>
-        <div className="flex items-center gap-4 mb-6">
-          <h2 className="text-xl font-semibold">
-            Selected Projects
-          </h2>
-
-          <div className="flex-1 h-px bg-zinc-800" />
-        </div>
-
+      <Section title="Teaching">
         <div className="space-y-3">
-          {projects.slice(0, 5).map((project: any) => (
-            <div key={project.slug}>
-              <div>{project.title}</div>
+          {teaching.slice(0, 5).map((course: any) => (
+            <div key={course.slug}>
+              <div>{course.title}</div>
               <div className="text-zinc-500 text-sm">
-                {project.type} • {project.year}
-              </div>
-              <div className="text-zinc-400 text-sm">
-                {project.summary}
+                {course.institution} • {course.year}
               </div>
             </div>
           ))}
         </div>
-      </section>
+      </Section>
 
-
-      <section>
-        <div className="flex items-center gap-4 mb-6">
-          <h2 className="text-xl font-semibold">
-            Services
-          </h2>
-          <div className="flex-1 h-px bg-zinc-800" />
-        </div>
-        
+      <Section title="Services">
         <div className="space-y-3">
-          {services.map((service: any) => (
+          {services.slice(0, 5).map((service: any) => (
             <div key={service.slug}>
               <div>{service.title}</div>
               <div className="text-zinc-500 text-sm">
@@ -252,7 +161,21 @@ export default function CVPage() {
             </div>
           ))}
         </div>
-      </section>
+      </Section>
+
+      <Section title="Projects">
+        <div className="space-y-3">
+          {projects.slice(0, 5).map((project: any) => (
+            <div key={project.slug}>
+              <div>{project.title}</div>
+              <div className="text-zinc-500 text-sm">
+                {project.organization} • {project.year}
+              </div>
+            </div>
+          ))}
+        </div>
+      </Section>
+
 
     </div>
   );

@@ -19,7 +19,7 @@ export default function PublicationsPage() {
               block
               py-3
               border-b
-              border-zinc-800
+              border-zinc-900
               hover:border-zinc-600
               transition-colors
             "

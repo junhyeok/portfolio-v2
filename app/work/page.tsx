@@ -11,20 +11,20 @@ export default function WorkPage() {
         Work
       </h1>
 
-      <div className="grid grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10">
         {projects.map((project: any) => (
           <Link
             key={project.slug}
             href={`/work/${project.slug}`}
             className="group"
           >
-            <div className="overflow-hidden">
+            <div className="relative aspect-[4/3] overflow-hidden bg-zinc-1000 p-2">
               <Image
                 src={project.thumbnail}
                 alt={project.title}
-                width={220}
-                height={130}
+                fill
                 className="
+                  object-contain
                   grayscale
                   group-hover:grayscale-0
                   transition-all
@@ -34,13 +34,17 @@ export default function WorkPage() {
             </div>
 
             <div className="mt-3">
-              <div className="text-xs text-zinc-500">
-                {project.type}
-              </div>
-
-              <h2 className="mt-1 font-medium">
+              <h2 className="mt-2 text-lg font-medium">
                 {project.title}
               </h2>
+
+              <div className="text-xs uppercase tracking-wide text-zinc-400 mt-1">
+                {project.type} • {project.year}
+              </div>
+
+              <p className="text-sm text-zinc-400 mt-2">
+                {project.summary}
+              </p>
             </div>
           </Link>
         ))}

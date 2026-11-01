@@ -2,71 +2,92 @@
 title: Finger Tracking Glove
 type: Prototype
 year: 2025
+order: 5
 thumbnail: /images/finger-tracking-glove/nailring_5working.png
-summary: Custom finger-tracking system using active markers for XR studies.
+summary: An optical tracking glove that leaves the fingertips exposed for tangible interaction.
 ---
 
-I developed a custom finger-tracking glove to support XR studies involving tangible proxies. The goal was to track precise fingertip movements and align a virtual hand representation with a user's real hand in real time.
+I built a custom finger-tracking glove for experiments involving physical objects in virtual reality.
 
-![Final system](/images/finger-tracking-glove/nailring_5working.png)
-*Final finger-tracking glove with nail-ring marker attachments.*
+The system needed to track each fingertip accurately while leaving the finger pads exposed. This was important because participants had to feel and manipulate tangible objects, not simply move an unoccupied hand through space.
 
-## Motivation
+![Final finger-tracking glove](/images/finger-tracking-glove/nailring_5working.png)
+*The completed glove uses five nail-mounted active markers.*
 
-Several studies required accurate finger tracking while interacting with tangible objects. Commercial systems exist, but I wanted a solution that was inexpensive, maintainable, and customizable across multiple projects.
+## The tracking problem
 
-## Early Exploration
+Commercial hand-tracking systems were available, but the experiments required control over how physical finger movements were represented in the virtual environment.
 
-An early prototype investigated whether OptiTrack's built-in hand-tracking algorithm could be used directly. The approach relied on asymmetric arrangements of passive markers across the hand and fingers.
+The tracker needed to satisfy four constraints:
 
-Unfortunately, passive tracking frequently suffered from marker swaps and orientation flips, which introduced tracking instability.
+- track all five fingertips;
+- remain stable when fingers moved close together;
+- preserve direct contact with physical objects;
+- stream marker positions into Unity in real time.
 
-### Early sketches
+I also wanted the system to remain inexpensive, repairable, and adaptable across experiments.
 
-![Early sketch](/images/finger-tracking-glove/early_sketch.png)
+## Starting with passive markers
 
-### Wire-routing prototype
+My first approach used OptiTrack's standard tracking pipeline. I arranged passive reflective markers asymmetrically across the hand and fingers so that the system could distinguish their positions and orientations.
 
-![Early prototype](/images/finger-tracking-glove/earlyprototyping.png)
+![Early marker arrangement sketch](/images/finger-tracking-glove/early_sketch.png)
+*An early exploration of marker placement across the hand.*
 
-These experiments explored marker placement and wire routing before committing to a final design.
+The approach reduced the amount of custom software I needed to write, but it became unreliable during natural hand movement. Markers were sometimes confused when fingers moved close together, producing identity swaps and sudden orientation changes.
 
-## Simplified Active-Marker Tracking
+Those errors were especially disruptive in VR. A small tracking mistake could cause the corresponding virtual finger to jump or flip.
 
-To gain complete control over the tracking pipeline, I implemented a simplified finger-tracking system in Unity using active markers.
+## Moving to active markers
 
-![Working glove prototype](/images/finger-tracking-glove/wires_glove.png)
+I replaced the passive arrangement with individually identifiable active markers and implemented a simplified tracking pipeline in Unity.
 
-A work glove was used to mount:
+![Wire-routing prototype](/images/finger-tracking-glove/earlyprototyping.png)
+*Testing marker placement and cable routing before assembling the glove.*
 
-- active markers
-- a controller PCB
-- a battery pack
+![Active-marker glove prototype](/images/finger-tracking-glove/wires_glove.png)
+*An early working version with the markers, controller, and battery mounted on a full glove.*
 
-This design provided reliable tracking performance but introduced two practical challenges:
+This gave me direct access to the position of each marker and avoided relying on the system to repeatedly infer which marker belonged to which finger.
 
-1. Accommodating different hand sizes.
-2. Preserving tactile feedback at the fingertips.
+The first working version used a work glove to carry the markers, controller board, wiring, and battery. Tracking became more stable, but the glove introduced another problem: the covered fingertips reduced tactile feedback when touching physical objects.
 
-## Nail Ring Design
+## Leaving the fingertips exposed
 
-To avoid covering the finger pads, I experimented with nail-mounted marker attachments.
+The final design moved the markers from the glove surface to small nail-mounted rings.
 
-![Nail ring concept](/images/finger-tracking-glove/using_finger_nailring.png)
+![Nail-mounted marker concept](/images/finger-tracking-glove/using_finger_nailring.png)
+*The nail-ring attachment keeps the finger pad uncovered.*
 
-The final design used:
+Each ring held an active marker above the fingernail. A half-finger glove carried the controller board, wiring, and battery while leaving the fingertips available for direct contact.
 
-- a half-finger glove
-- five nail rings
-- active markers
-- a hand-mounted PCB and battery
+![Final finger-tracking system](/images/finger-tracking-glove/nailring_5working.png)
+*The final system with five nail rings and a hand-mounted controller.*
 
-![Final prototype](/images/finger-tracking-glove/nailring_5working.png)
+This configuration balanced three competing needs:
 
-This approach maintained tactile feedback while providing stable tracking.
+- reliable optical visibility;
+- freedom of finger movement;
+- direct tactile contact with tangible objects.
 
-## Outcome
+## What the system enabled
 
-The final system delivered tracked fingertip positions for all five fingers. Marker positions were streamed into Unity and used to drive the virtual hand representation.
+The resulting system streamed the positions of all five fingertips into Unity and used those positions to control a virtual hand.
 
-Because the virtual hand could be manipulated independently from the tangible proxy, the system enabled experiments involving scale changes and physical-virtual mismatch conditions.
+More importantly, the tracked hand did not have to remain perfectly aligned with the physical hand. I could deliberately change the scale or position of the virtual movement while participants continued manipulating a tangible proxy.
+
+This made the glove more than a tracking accessory. It became part of an experimental platform for studying how people respond when physical action and virtual feedback no longer correspond exactly.
+
+## What I would improve
+
+The prototype worked for controlled studies, but it remained a research instrument rather than a general-purpose glove. Wiring and fit still required adjustment between users, and the nail rings needed to accommodate different finger sizes.
+
+A future version could use:
+
+- interchangeable ring sizes;
+- shorter or integrated wiring;
+- a smaller wireless controller;
+- calibration tailored to each user's hand;
+- a modular attachment system for rapid replacement.
+
+The central design lesson was simple: better tracking was not only a matter of increasing precision. The physical form of the tracker had to preserve the tactile interaction that the experiment was intended to study.

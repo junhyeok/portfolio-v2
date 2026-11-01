@@ -1,5 +1,5 @@
 export const profile = {
-  name: "Junhyeok Kim",
+  name: "Junhyeok Kim, Ph.D",
 
   location: "Toronto, Ontario, Canada",
 
@@ -15,7 +15,9 @@ export const profile = {
     "My work explores how physical and virtual representations can be combined to create more effective interactive systems.",
 
   interests: [
-    "Human-Computer Interaction, Extended Reality, Interaction Techniques, Tangible Interfaces",
+    "Human-Computer Interaction",
+    "Interaction, Tangible Interfaces",
+    "Emerging technologies"
   ],
 
   education: [

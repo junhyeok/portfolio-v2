@@ -40,17 +40,7 @@ async function ProjectContent({
         </div>
       </div>
 
-      {project.frontmatter.thumbnail && (
-        <div className="mb-10">
-          <Image
-            src={project.frontmatter.thumbnail}
-            alt={project.frontmatter.title}
-            width={1200}
-            height={675}
-            className="w-full"
-          />
-        </div>
-      )}
+
 
       <div className="prose prose-invert max-w-none">
         <MDXRemote source={project.source} />
