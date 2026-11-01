@@ -14,5 +14,8 @@ export default function Home() {
         I design, build, and study emerging interactive systems. My work combines empirical research, interaction design, and functional prototyping to understand how people maintain agency and control as technology moves beyond familiar physical constraints.
       </p>
     </div>
+
+
+
   );
 }
